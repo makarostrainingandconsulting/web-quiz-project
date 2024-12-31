@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FROM ZERO TO YAML: FUNDAMENTALS AND PRACTICAL - William dos Santos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin: 0;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Basic General Knowledge Quiz</h1>
+
+    <div>
+        <h2>Load Quiz File</h2>
+        <input type="file" id="yamlFile" accept=".yaml, .yml">
+        <button onclick="loadYAML()">Load Quiz</button>
+    </div>
+
+    <div id="quiz"></div>
+
+    <button id="submitButton" onclick="checkAnswers()" style="display:none;">See Results</button>
+
+    <div id="result"></div>
+
+    <script>
+        let quizData = {};
+        let userAnswers = {};
+
+        // Function to load and process the YAML file
+        function loadYAML() {
+            const fileInput = document.getElementById('yamlFile');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert("Please select a YAML file.");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const yamlText = event.target.result;
+                quizData = parseYAML(yamlText);
+                displayQuiz(quizData);
+                document.getElementById('submitButton').style.display = 'inline';
+            };
+
+            reader.readAsText(file);
+        }
+
+        // Function to parse the YAML content
+        function parseYAML(yamlText) {
+            const data = jsyaml.load(yamlText); // Using the js-yaml library to process the YAML
+            return data;
+        }
+
+        // Function to display the quiz questions
+        function displayQuiz(data) {
+            const quizContainer = document.getElementById('quiz');
+            quizContainer.innerHTML = `
+                <h2>${data.title}</h2>
+                <p>Minimum Score Required to Pass: ${data.minimum_score}</p>
+            `;
+            
+            data.questions.forEach((question) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
+                questionDiv.innerHTML = `
+                    <h3>${question.number}. ${question.question}</h3>
+                    <label><input type="radio" name="question${question.number}" value="a"> ${question.options.a}</label><br>
+                    <label><input type="radio" name="question${question.number}" value="b"> ${question.options.b}</label><br>
+                    <label><input type="radio" name="question${question.number}" value="c"> ${question.options.c}</label><br>
+                    <label><input type="radio" name="question${question.number}" value="d"> ${question.options.d}</label><br>
+                `;
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        // Function to check the user's answers and calculate the result
+        function checkAnswers() {
+            let score = 0;
+            const totalQuestions = quizData.questions.length;
+
+            quizData.questions.forEach((question) => {
+                const selectedAnswer = document.querySelector(`input[name="question${question.number}"]:checked`);
+                if (selectedAnswer && selectedAnswer.value === question.correct_answer) {
+                    score++;
+                }
+            });
+
+            const resultDiv = document.getElementById('result');
+            if (score >= quizData.minimum_score) {
+                resultDiv.innerHTML = `You passed! Your score is: ${score}/${totalQuestions}`;
+            } else {
+                resultDiv.innerHTML = `You did not pass. Your score is: ${score}/${totalQuestions}. You need ${quizData.minimum_score - score} more points to pass.`;
+            }
+        }
+    </script>
+
+    <!-- Including the YAML.js library to parse YAML content -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+</body>
+</html>
