@@ -16,11 +16,11 @@ This book takes you from a beginner to an expert in YAML, offering hands-on exam
 
 ## Project Overview:
 
-This web-based quiz allows users to upload a `quiz.yaml` file to load quiz questions, answer them, and get a score based on their responses. It’s a practical example of how YAML can be integrated into web applications for configuration and data management.
+This web-based quiz allows users to upload a `quiz.yml` file to load quiz questions, answer them, and get a score based on their responses. It’s a practical example of how YAML can be integrated into web applications for configuration and data management.
 
 ### Files in this repository:
 - **index.html**: A webpage that displays the quiz. It loads the quiz data from a YAML file.
-- **quiz.yaml**: A sample YAML file containing quiz data, including questions, options, correct answers, and the passing score.
+- **quiz.yml**: A sample YAML file containing quiz data, including questions, options, correct answers, and the passing score.
 - **yamlbook.jpg**: The cover image of the book *From Zero to YAML: Fundamentals and Practical Applications*.
 
 ---
