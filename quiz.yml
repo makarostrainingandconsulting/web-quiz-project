@@ -1,0 +1,92 @@
+title: "Basic General Knowledge Quiz"
+minimum_score: 7
+questions:
+  - number: 1
+    question: "What color is the sky on a clear day?"
+    options:
+      a: "Blue"
+      b: "Green"
+      c: "Red"
+      d: "Yellow"
+    correct_answer: "a"
+
+  - number: 2
+    question: "Which animal is known as man's best friend?"
+    options:
+      a: "Dog"
+      b: "Cat"
+      c: "Elephant"
+      d: "Horse"
+    correct_answer: "a"
+
+  - number: 3
+    question: "What is 2 + 2?"
+    options:
+      a: "3"
+      b: "4"
+      c: "5"
+      d: "6"
+    correct_answer: "b"
+
+  - number: 4
+    question: "Which fruit is typically yellow when ripe?"
+    options:
+      a: "Apple"
+      b: "Banana"
+      c: "Grape"
+      d: "Cherry"
+    correct_answer: "b"
+
+  - number: 5
+    question: "Which planet is known as the Red Planet?"
+    options:
+      a: "Earth"
+      b: "Mars"
+      c: "Venus"
+      d: "Saturn"
+    correct_answer: "b"
+
+  - number: 6
+    question: "What is the primary source of energy for Earth?"
+    options:
+      a: "The Moon"
+      b: "The Sun"
+      c: "The Wind"
+      d: "The Ocean"
+    correct_answer: "b"
+
+  - number: 7
+    question: "How many continents are there on Earth?"
+    options:
+      a: "5"
+      b: "6"
+      c: "7"
+      d: "8"
+    correct_answer: "c"
+
+  - number: 8
+    question: "Which is the largest ocean on Earth?"
+    options:
+      a: "Atlantic Ocean"
+      b: "Indian Ocean"
+      c: "Pacific Ocean"
+      d: "Arctic Ocean"
+    correct_answer: "c"
+
+  - number: 9
+    question: "What is the capital city of France?"
+    options:
+      a: "Berlin"
+      b: "Paris"
+      c: "Rome"
+      d: "London"
+    correct_answer: "b"
+
+  - number: 10
+    question: "What do we call a house made of ice?"
+    options:
+      a: "Igloo"
+      b: "Tent"
+      c: "Castle"
+      d: "Mansion"
+    correct_answer: "a"
