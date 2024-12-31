@@ -29,4 +29,4 @@ This web-based quiz allows users to upload a `quiz.yaml` file to load quiz quest
 
 1. **Clone this repository**:
    ```bash
-   git clone https://github.com/your-username/quiz-project-from-zero-to-yaml.git
+   git clone https://github.com/makarostrainingandconsulting/web-quiz-project.git
